@@ -32,7 +32,6 @@
 
 // Load images.
 const CARD_IMAGES = new Array(52).fill(null).map(()=> (new Image()));
-const WHITE_SQUARE              = new Image();
 const DECK_RESET                = new Image();
 const CARD_BACK                 = new Image();
 const COLUMN_MARKER           	= new Image();
@@ -94,7 +93,6 @@ CARD_IMAGES[49].src 	= 'images/cards/jackDiamonds.png';
 CARD_IMAGES[50].src 	= 'images/cards/queenDiamonds.png';
 CARD_IMAGES[51].src 	= 'images/cards/kingDiamonds.png';
 
-WHITE_SQUARE.src             	= 'images/misc/whiteSquare.png';
 DECK_RESET.src               	= 'images/misc/deckReset.png';
 CARD_BACK.src                	= 'images/misc/cardBackPattern1.png';
 COLUMN_MARKER.src           	= 'images/misc/emptyCardPile.png';
