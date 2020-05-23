@@ -591,7 +591,7 @@ Column.prototype.updateAnchorPos = function(){
 
 
 
-// "Hand" = cursor + dragged cards.
+// Hand = cursor + dragged cards.
 function Hand(){
 	Pile.call(this);
 
@@ -757,7 +757,7 @@ dealTypeSelectButton.onclick = function () {
 
 
 
-// Auxilliary functions.
+// Functions.
 function winPileTransfer(location, card){
 	for (var i = 0; i < winPiles.length; i++){
 		if (winPiles[i].validateDrop(card)){
