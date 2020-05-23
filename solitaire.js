@@ -25,7 +25,7 @@
 
 
 
-// Javascript solitaire for html5 canvas.
+// Javascript solitaire.
 
 
 
