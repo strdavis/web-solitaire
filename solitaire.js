@@ -494,7 +494,7 @@ Column.prototype.detectClicks = function(){
 	}
     }
 
-	return this.processClicks(clickIndex);
+    return this.processClicks(clickIndex);
 }
 
 
@@ -515,7 +515,7 @@ Column.prototype.processClicks = function(clickIndex){
 	}
     }
 
-	return clickIndex;
+    return clickIndex;
 }
 
 
