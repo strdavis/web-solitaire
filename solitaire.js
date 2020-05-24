@@ -106,8 +106,8 @@ WIN_PILE_MARKER_DIAMONDS.src   	= 'images/misc/emptyCardPileDiamonds.png';
 
 
 // Globals
-let canvas = document.getElementById("tttCanvas");
-let context = canvas.getContext("2d");
+const canvas = document.getElementById("tttCanvas");
+const context = canvas.getContext("2d");
 
 const CANVAS_WIDTH = context.canvas.clientWidth;
 const CANVAS_HEIGHT = context.canvas.clientHeight;
