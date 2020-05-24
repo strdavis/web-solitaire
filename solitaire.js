@@ -32,6 +32,7 @@
 
 // Load images.
 const CARD_IMAGES = new Array(52).fill(null).map(()=> (new Image()));
+
 const DECK_RESET                = new Image();
 const CARD_BACK                 = new Image();
 const COLUMN_MARKER           	= new Image();
@@ -40,58 +41,58 @@ const WIN_PILE_MARKER_CLUBS     = new Image();
 const WIN_PILE_MARKER_HEARTS    = new Image();
 const WIN_PILE_MARKER_DIAMONDS  = new Image();
 
-CARD_IMAGES[0].src	= 'images/cards/aceSpades.png';
-CARD_IMAGES[1].src  	= 'images/cards/2Spades.png'
-CARD_IMAGES[2].src  	= 'images/cards/3Spades.png';
-CARD_IMAGES[3].src  	= 'images/cards/4Spades.png';
-CARD_IMAGES[4].src  	= 'images/cards/5Spades.png';
-CARD_IMAGES[5].src  	= 'images/cards/6Spades.png';
-CARD_IMAGES[6].src      = 'images/cards/7Spades.png';
-CARD_IMAGES[7].src  	= 'images/cards/8Spades.png';
-CARD_IMAGES[8].src  	= 'images/cards/9Spades.png';
-CARD_IMAGES[9].src  	= 'images/cards/10Spades.png';
-CARD_IMAGES[10].src 	= 'images/cards/jackSpades.png';
-CARD_IMAGES[11].src 	= 'images/cards/queenSpades.png';
-CARD_IMAGES[12].src 	= 'images/cards/kingSpades.png';
-CARD_IMAGES[13].src 	= 'images/cards/aceClubs.png';
-CARD_IMAGES[14].src 	= 'images/cards/2Clubs.png';
-CARD_IMAGES[15].src 	= 'images/cards/3Clubs.png';
-CARD_IMAGES[16].src 	= 'images/cards/4Clubs.png';
-CARD_IMAGES[17].src 	= 'images/cards/5Clubs.png';
-CARD_IMAGES[18].src 	= 'images/cards/6Clubs.png';
-CARD_IMAGES[19].src 	= 'images/cards/7Clubs.png';
-CARD_IMAGES[20].src 	= 'images/cards/8Clubs.png';
-CARD_IMAGES[21].src 	= 'images/cards/9Clubs.png';
-CARD_IMAGES[22].src 	= 'images/cards/10Clubs.png';
-CARD_IMAGES[23].src 	= 'images/cards/jackClubs.png';
-CARD_IMAGES[24].src 	= 'images/cards/queenClubs.png';
-CARD_IMAGES[25].src 	= 'images/cards/kingClubs.png';
-CARD_IMAGES[26].src 	= 'images/cards/aceHearts.png';
-CARD_IMAGES[27].src 	= 'images/cards/2Hearts.png';
-CARD_IMAGES[28].src 	= 'images/cards/3Hearts.png';
-CARD_IMAGES[29].src 	= 'images/cards/4Hearts.png';
-CARD_IMAGES[30].src 	= 'images/cards/5Hearts.png';
-CARD_IMAGES[31].src 	= 'images/cards/6Hearts.png';
-CARD_IMAGES[32].src 	= 'images/cards/7Hearts.png';
-CARD_IMAGES[33].src 	= 'images/cards/8Hearts.png';
-CARD_IMAGES[34].src     = 'images/cards/9Hearts.png';
-CARD_IMAGES[35].src 	= 'images/cards/10Hearts.png';
-CARD_IMAGES[36].src 	= 'images/cards/jackHearts.png';
-CARD_IMAGES[37].src 	= 'images/cards/queenHearts.png';
-CARD_IMAGES[38].src 	= 'images/cards/kingHearts.png';
-CARD_IMAGES[39].src 	= 'images/cards/aceDiamonds.png';
-CARD_IMAGES[40].src 	= 'images/cards/2Diamonds.png';
-CARD_IMAGES[41].src 	= 'images/cards/3Diamonds.png';
-CARD_IMAGES[42].src 	= 'images/cards/4Diamonds.png';
-CARD_IMAGES[43].src 	= 'images/cards/5Diamonds.png';
-CARD_IMAGES[44].src 	= 'images/cards/6Diamonds.png';
-CARD_IMAGES[45].src 	= 'images/cards/7Diamonds.png';
-CARD_IMAGES[46].src 	= 'images/cards/8Diamonds.png';
-CARD_IMAGES[47].src 	= 'images/cards/9Diamonds.png';
-CARD_IMAGES[48].src 	= 'images/cards/10Diamonds.png';
-CARD_IMAGES[49].src 	= 'images/cards/jackDiamonds.png';
-CARD_IMAGES[50].src 	= 'images/cards/queenDiamonds.png';
-CARD_IMAGES[51].src 	= 'images/cards/kingDiamonds.png';
+CARD_IMAGES[0].src  = 'images/cards/aceSpades.png';
+CARD_IMAGES[1].src  = 'images/cards/2Spades.png'
+CARD_IMAGES[2].src  = 'images/cards/3Spades.png';
+CARD_IMAGES[3].src  = 'images/cards/4Spades.png';
+CARD_IMAGES[4].src  = 'images/cards/5Spades.png';
+CARD_IMAGES[5].src  = 'images/cards/6Spades.png';
+CARD_IMAGES[6].src  = 'images/cards/7Spades.png';
+CARD_IMAGES[7].src  = 'images/cards/8Spades.png';
+CARD_IMAGES[8].src  = 'images/cards/9Spades.png';
+CARD_IMAGES[9].src  = 'images/cards/10Spades.png';
+CARD_IMAGES[10].src = 'images/cards/jackSpades.png';
+CARD_IMAGES[11].src = 'images/cards/queenSpades.png';
+CARD_IMAGES[12].src = 'images/cards/kingSpades.png';
+CARD_IMAGES[13].src = 'images/cards/aceClubs.png';
+CARD_IMAGES[14].src = 'images/cards/2Clubs.png';
+CARD_IMAGES[15].src = 'images/cards/3Clubs.png';
+CARD_IMAGES[16].src = 'images/cards/4Clubs.png';
+CARD_IMAGES[17].src = 'images/cards/5Clubs.png';
+CARD_IMAGES[18].src = 'images/cards/6Clubs.png';
+CARD_IMAGES[19].src = 'images/cards/7Clubs.png';
+CARD_IMAGES[20].src = 'images/cards/8Clubs.png';
+CARD_IMAGES[21].src = 'images/cards/9Clubs.png';
+CARD_IMAGES[22].src = 'images/cards/10Clubs.png';
+CARD_IMAGES[23].src = 'images/cards/jackClubs.png';
+CARD_IMAGES[24].src = 'images/cards/queenClubs.png';
+CARD_IMAGES[25].src = 'images/cards/kingClubs.png';
+CARD_IMAGES[26].src = 'images/cards/aceHearts.png';
+CARD_IMAGES[27].src = 'images/cards/2Hearts.png';
+CARD_IMAGES[28].src = 'images/cards/3Hearts.png';
+CARD_IMAGES[29].src = 'images/cards/4Hearts.png';
+CARD_IMAGES[30].src = 'images/cards/5Hearts.png';
+CARD_IMAGES[31].src = 'images/cards/6Hearts.png';
+CARD_IMAGES[32].src = 'images/cards/7Hearts.png';
+CARD_IMAGES[33].src = 'images/cards/8Hearts.png';
+CARD_IMAGES[34].src = 'images/cards/9Hearts.png';
+CARD_IMAGES[35].src = 'images/cards/10Hearts.png';
+CARD_IMAGES[36].src = 'images/cards/jackHearts.png';
+CARD_IMAGES[37].src = 'images/cards/queenHearts.png';
+CARD_IMAGES[38].src = 'images/cards/kingHearts.png';
+CARD_IMAGES[39].src = 'images/cards/aceDiamonds.png';
+CARD_IMAGES[40].src = 'images/cards/2Diamonds.png';
+CARD_IMAGES[41].src = 'images/cards/3Diamonds.png';
+CARD_IMAGES[42].src = 'images/cards/4Diamonds.png';
+CARD_IMAGES[43].src = 'images/cards/5Diamonds.png';
+CARD_IMAGES[44].src = 'images/cards/6Diamonds.png';
+CARD_IMAGES[45].src = 'images/cards/7Diamonds.png';
+CARD_IMAGES[46].src = 'images/cards/8Diamonds.png';
+CARD_IMAGES[47].src = 'images/cards/9Diamonds.png';
+CARD_IMAGES[48].src = 'images/cards/10Diamonds.png';
+CARD_IMAGES[49].src = 'images/cards/jackDiamonds.png';
+CARD_IMAGES[50].src = 'images/cards/queenDiamonds.png';
+CARD_IMAGES[51].src = 'images/cards/kingDiamonds.png';
 
 DECK_RESET.src               	= 'images/misc/deckReset.png';
 CARD_BACK.src                	= 'images/misc/cardBackPattern1.png';
@@ -124,10 +125,10 @@ const TRIPLE_DEAL   = 1;
 const CARD_WIDTH    = 90;
 const CARD_HEIGHT   = 135;
 
-const FACE_DOWN_CARD_OFFSET     = 5;
-const FACE_UP_CARD_OFFSET       = 20;
-const DEAL_PILE_CARD_OFFSET     = 25;
-const DROP_THRESHOLD            = 30;
+const FACE_DOWN_CARD_OFFSET = 5;
+const FACE_UP_CARD_OFFSET   = 20;
+const DEAL_PILE_CARD_OFFSET = 25;
+const DROP_THRESHOLD        = 30;
 
 var deck        = null;
 var dealPile    = null;
@@ -267,12 +268,12 @@ Pile.prototype.validateDrop = function(card){
 
 Pile.prototype.push = function(cards, orientation = FACE_UP){
     for (var i = 0; i < cards.length; i++){
-    var card = cards[i];
+        var card = cards[i];
 
-    card.setOrientation(orientation);
-    card.setPos(this.anchorX, this.anchorY);
+        card.setOrientation(orientation);
+        card.setPos(this.anchorX, this.anchorY);
 
-    Array.prototype.push.call(this, card);
+        Array.prototype.push.call(this, card);
     }
 }
 
@@ -293,7 +294,7 @@ Pile.prototype.popFromIndex = function(index){
 
     // From index to end of pile, copy items to new array.
     for (var i = index; i < this.length; i++){
-	endSegment.push(this[i]);
+	    endSegment.push(this[i]);
     }
 
     // Clear copied items from pile.
@@ -301,6 +302,7 @@ Pile.prototype.popFromIndex = function(index){
     for (var i = index; i < itemsToClear; i++){
         this.pop();
     }
+
     // Return new array;
     return endSegment;
 }
@@ -310,12 +312,12 @@ Pile.prototype.popFromIndex = function(index){
 
 Pile.prototype.draw = function(){
     if (this.markerImage){
-	context.drawImage(this.markerImage, this.x, this.y, this.markerW, this.markerH);
+	    context.drawImage(this.markerImage, this.x, this.y, this.markerW, this.markerH);
     }
 
     // Draw all cards.
     for (var i = 0; i < this.length; i++){
-	this[i].draw();
+	    this[i].draw();
     }
 }
 
@@ -327,12 +329,12 @@ function Deck(x, y, deckResetImage){
 
     // Populate deck.
     for (var i = 0; i < 52; i++){
-	var value = (i % 13) + 1
-	var suit = Math.floor(i / 13)
-	var image = CARD_IMAGES[i];
-
-	var card = new Card(value, suit, image);
-	this.push([card], FACE_DOWN);
+        var value = (i % 13) + 1
+        var suit = Math.floor(i / 13)
+        var image = CARD_IMAGES[i];
+        
+        var card = new Card(value, suit, image);
+        this.push([card], FACE_DOWN);
     }
 }
 Deck.prototype = new Pile();
