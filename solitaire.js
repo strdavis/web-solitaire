@@ -312,12 +312,12 @@ Pile.prototype.popFromIndex = function(index){
 
 Pile.prototype.draw = function(){
     if (this.markerImage){
-	    context.drawImage(this.markerImage, this.x, this.y, this.markerW, this.markerH);
+        context.drawImage(this.markerImage, this.x, this.y, this.markerW, this.markerH);
     }
 
     // Draw all cards.
     for (var i = 0; i < this.length; i++){
-	    this[i].draw();
+        this[i].draw();
     }
 }
 
@@ -344,13 +344,13 @@ Deck.prototype = new Pile();
 
 Deck.prototype.detectClicks = function(){
     if (hand.x > this.x &&
-	hand.y > this.y &&
-	hand.x < this.x + this.markerW &&
-	hand.y < this.y + this.markerH){
+        hand.y > this.y &&
+        hand.x < this.x + this.markerW &&
+        hand.y < this.y + this.markerH){
 	    return true;
     }
     else{
-	return false;
+        return false;
     }
 }
 
@@ -362,12 +362,12 @@ Deck.prototype.shuffle = function(){
     var temp, randomIndex;
 
     while (0 !== currentIndex) {
-	randomIndex = Math.floor(Math.random() * currentIndex);
-	currentIndex -= 1;
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
 
-	temp = this[currentIndex];
-	this[currentIndex] = this[randomIndex];
-	this[randomIndex] = temp;
+        temp = this[currentIndex];
+        this[currentIndex] = this[randomIndex];
+        this[randomIndex] = temp;
     }
 }
 
@@ -389,18 +389,18 @@ DealPile.prototype.pop = function(){
     // This code accounts for the various possible positions
     // of cards that have been spread in a triple-deal.
     if (this.length == 0 || this.length == 1){
-	this.anchorX = this.x;
+        this.anchorX = this.x;
     }
     else{
-	var topCard = this[this.length - 1];
-	var cardBelow = this[this.length - 2];
+        var topCard = this[this.length - 1];
+        var cardBelow = this[this.length - 2];
 
-	if (topCard.x == cardBelow.x){    
+        if (topCard.x == cardBelow.x){    
             this.anchorX = this.x
-	}
-	else{
-	    this.anchorX = topCard.x;
-	}
+	    }
+        else{
+	        this.anchorX = topCard.x;
+	    }
     }
 
     return Pile.prototype.pop.call(this);
@@ -416,7 +416,7 @@ DealPile.prototype.spreadTopCards = function(numberToReveal){
 
     for (var i = startIndex; i <= endIndex; i++){
         this[i].x = this.x + (modifier * this.cardOffsetX);
-	modifier++;
+        modifier++;
     }
 
     var topCard = this[endIndex];
@@ -451,18 +451,19 @@ WinPile.prototype = new Pile();
 
 WinPile.prototype.validateDrop = function(card){
     if (card.suit != this.suit){
-	return false;
+        return false;
     }
 
     if (this.length == 0 && card.value != 1){
-	return false;
+        return false;
     }
 
     if (this.length > 0){
         var targetCard = this[this.length - 1];
-	if (targetCard.value != card.value - 1){
-	    return false;
-	}
+
+        if (targetCard.value != card.value - 1){
+            return false;
+        }
     }
 
 	return true;
@@ -487,11 +488,11 @@ Column.prototype.detectClicks = function(){
     if (this.length > 0){
         var clickIndex = -1;
         for (var i = this.length - 1; i >= 0; i--){
-	    if (this[i].detectClicks()){
-	        clickIndex = i;
-		break;
-	    }
-	}
+            if (this[i].detectClicks()){
+            clickIndex = i;
+            break;
+            }
+        }
     }
 
     return this.processClicks(clickIndex);
@@ -502,17 +503,17 @@ Column.prototype.detectClicks = function(){
 
 Column.prototype.processClicks = function(clickIndex){
     if (clickIndex > -1){
-	var card = this[clickIndex];
+        var card = this[clickIndex];
 
-	if (card.orientation == FACE_UP){
-	    return clickIndex;
-	}
+        if (card.orientation == FACE_UP){
+            return clickIndex;
+        }
 
-	// If exposed face-down card has been clicked, turn it over.
-	if (card.orientation == FACE_DOWN && clickIndex == this.length - 1){
-	    card.setOrientation(FACE_UP);
-	    this.updateAnchorPos();
-	}
+        // If exposed face-down card has been clicked, turn it over.
+        if (card.orientation == FACE_DOWN && clickIndex == this.length - 1){
+            card.setOrientation(FACE_UP);
+            this.updateAnchorPos();
+        }
     }
 
     return clickIndex;
@@ -523,18 +524,18 @@ Column.prototype.processClicks = function(clickIndex){
 
 Column.prototype.validateDrop = function(card){
     if (this.length > 0){
-	var targetCard = this[this.length - 1];
+        var targetCard = this[this.length - 1];
 
-	if (targetCard.value != card.value + 1){
-	    return false;
-	}
+        if (targetCard.value != card.value + 1){
+            return false;
+        }
 
-	if (targetCard.colour == card.colour){
-	    return false;
-	}
+        if (targetCard.colour == card.colour){
+            return false;
+        }
     }
     else if (card.value != 13){
-	return false;
+        return false;
     }
 
     return true;
@@ -545,14 +546,14 @@ Column.prototype.validateDrop = function(card){
 
 Column.prototype.push = function(cards, orientation = FACE_UP){
     for (var i = 0; i < cards.length; i++){
-	var card = cards[i];
+        var card = cards[i];
 
-	card.setOrientation(orientation);
-	card.setPos(this.anchorX, this.anchorY);
+        card.setOrientation(orientation);
+        card.setPos(this.anchorX, this.anchorY);
 
-	Array.prototype.push.call(this, card);
+        Array.prototype.push.call(this, card);
 
-	this.updateAnchorPos();
+        this.updateAnchorPos();
     }
 }
 
@@ -575,10 +576,10 @@ Column.prototype.updateAnchorPos = function(){
         var topCard = this[this.length - 1];
 
         if (topCard.orientation == FACE_UP){
-	    this.anchorY = topCard.y + this.faceUpCardOffsetY;
+            this.anchorY = topCard.y + this.faceUpCardOffsetY;
         }
         else{
-	    this.anchorY = topCard.y + this.faceDownCardOffsetY;
+            this.anchorY = topCard.y + this.faceDownCardOffsetY;
         }
     }
     else{
@@ -618,12 +619,12 @@ Hand.prototype.setPos = function(pos = new Point(this.x, this.y)){
     this.y = pos.y;
 
     for (var i = 0; i < this.length; i++){
-	var card = this[i];
+        var card = this[i];
 
-	var cardX = this.x + this.dragOffsetX;
-	var cardY = this.y + this.dragOffsetY + (i * this.cardOffsetY);
+        var cardX = this.x + this.dragOffsetX;
+        var cardY = this.y + this.dragOffsetY + (i * this.cardOffsetY);
 
-	card.setPos(cardX, cardY);
+        card.setPos(cardX, cardY);
     }
 }
 
@@ -651,20 +652,20 @@ tttCanvas.addEventListener('mousedown', function mouseDownOnCanvas (pos) {
     hand.setPos(computeCursorPosition(pos));
 
     if (deck.detectClicks()){
-	deal();
+        deal();
     }
     else{
-	// Scan locations for clicks. 
-	// Transfer cards to hand if pickup detected.
-	for (var i = 0; i < locations.length; i++){
-	    var clickIndex = locations[i].detectClicks();
+        // Scan locations for clicks. 
+        // Transfer cards to hand if pickup detected.
+        for (var i = 0; i < locations.length; i++){
+            var clickIndex = locations[i].detectClicks();
 
-	    if (clickIndex > -1){
-		hand.push(locations[i].popFromIndex(clickIndex));
-		hand.pickupLocation = i;
-		break;
-	    }
-	}
+            if (clickIndex > -1){
+                hand.push(locations[i].popFromIndex(clickIndex));
+                hand.pickupLocation = i;
+                break;
+            }
+        }
     }
 
     render();
@@ -679,16 +680,16 @@ tttCanvas.addEventListener('dblclick', function doubleClickOnCanvas (pos) {
     // Scan locations for double-clicks.
     // Attempt transfer to win-pile if detected.
     for (var i = 0; i < locations.length; i++){
-	var location = locations[i];
+        var location = locations[i];
 
-	if (location.length > 0){
-	    var clickIndex = location.detectClicks();
+        if (location.length > 0){
+            var clickIndex = location.detectClicks();
 
-	    // If top card was double-clicked. . .
-	    if (clickIndex == location.length - 1){
-		winPileTransfer(i, location[clickIndex]);
-	    }
-	}
+            // If top card was double-clicked. . .
+            if (clickIndex == location.length - 1){
+            winPileTransfer(i, location[clickIndex]);
+            }
+        }
     }
 
     render();
@@ -701,24 +702,24 @@ document.addEventListener('mouseup', function mouseUpOnCanvas (pos) {
     hand.setPos(computeCursorPosition(pos));
 
     if (hand.length > 0){
-	var dropOK = false;
-	var bottomCardInHand = hand[0];
+        var dropOK = false;
+        var bottomCardInHand = hand[0];
 
-	// Scan locations for drops, perform drop if detected.
-	// Deal pile (location 0) does not accept drops, so scan begins at location 1.
-	for (var i = 1; i < locations.length; i++){
-	    if (locations[i].detectDrops(bottomCardInHand) && 
-		locations[i].validateDrop(bottomCardInHand)){
-		    locations[i].push(hand.popFromIndex(0));
-		    dropOK = true;
-		    break;
-	    }
-	}
+        // Scan locations for drops, perform drop if detected.
+        // Deal pile (location 0) does not accept drops, so scan begins at location 1.
+        for (var i = 1; i < locations.length; i++){
+            if (locations[i].detectDrops(bottomCardInHand) && 
+                locations[i].validateDrop(bottomCardInHand)){
+                locations[i].push(hand.popFromIndex(0));
+                    dropOK = true;
+                    break;
+            }
+        }
 
         // If drop unsuccessful, return cards to pickup location.
-	if (!dropOK && hand.pickupLocation > -1){
-	    locations[hand.pickupLocation].push(hand.popFromIndex(0));
-	}
+        if (!dropOK && hand.pickupLocation > -1){
+            locations[hand.pickupLocation].push(hand.popFromIndex(0));
+        }
     }
 
     render();
@@ -746,10 +747,11 @@ newGameButton.onclick = function () {
 dealTypeSelectButton.onclick = function () {
     if (dealType == SINGLE_DEAL) {
         dealType = TRIPLE_DEAL;
-	dealTypeSelectButton.innerHTML = "<b>triple deal</b>";
-    } else {
-	dealType = SINGLE_DEAL;
-	dealTypeSelectButton.innerHTML = "<b>single deal</b>";
+        dealTypeSelectButton.innerHTML = "<b>triple deal</b>";
+    } 
+    else {
+        dealType = SINGLE_DEAL;
+        dealTypeSelectButton.innerHTML = "<b>single deal</b>";
     }
 }
 
@@ -759,9 +761,9 @@ dealTypeSelectButton.onclick = function () {
 function winPileTransfer(location, card){
     for (var i = 0; i < winPiles.length; i++){
         if (winPiles[i].validateDrop(card)){
-	    winPiles[i].push(locations[location].pop());
-	    break;
-	}
+            winPiles[i].push(locations[location].pop());
+            break;
+        }
     }
 
     render();
@@ -784,8 +786,8 @@ function computeCursorPosition(pos){
 
 function deal(){
     if (deck.length == 0){
-	recoverDealPile();
-	return;
+        recoverDealPile();
+        return;
     }
 
     var dealSize = getDealSize();
@@ -794,7 +796,7 @@ function deal(){
     dealPile.push(deck.popFromIndex(deck.length - dealSize));
 	
     if (dealType == TRIPLE_DEAL){
-	dealPile.spreadTopCards(dealSize);
+        dealPile.spreadTopCards(dealSize);
     }
 }
 
@@ -804,11 +806,11 @@ function deal(){
 function getDealSize(){
     var dealSize = 0;
     while (dealSize < 3 && dealSize < deck.length){
-	dealSize++;
+        dealSize++;
 
-	if (dealType == SINGLE_DEAL){
-	    break;
-	}
+        if (dealType == SINGLE_DEAL){
+            break;
+        }
     }
 
     return dealSize;
@@ -829,7 +831,7 @@ function recoverDealPile(){
 
 function recoverAllCards(){
     for (var i = 0; i < locations.length; i++){
-	deck.push(locations[i].popFromIndex(0), FACE_DOWN);
+        deck.push(locations[i].popFromIndex(0), FACE_DOWN);
     }
 }
 
@@ -843,7 +845,7 @@ function render(){
     deck.draw();
 
     for (var i = 0; i < locations.length; i++){
-	locations[i].draw();
+        locations[i].draw();
     }
 
     hand.draw();
@@ -860,12 +862,11 @@ function newGame(){
 
     // Deal columns
     for (var i = 0; i < columns.length; i++){
-	for (var j = 0; j < i; j++){
-	    columns[i].push(deck.pop(), FACE_DOWN);
+        for (var j = 0; j < i; j++){
+            columns[i].push(deck.pop(), FACE_DOWN);
+        }
 
-	}
-
-	columns[i].push(deck.pop());
+        columns[i].push(deck.pop());
     }
 
     render();	
@@ -881,35 +882,35 @@ function init(){
     dealPile = new DealPile(120, 10);
 	
     winPiles = [
-	new WinPile(340, 10, SPADES, WIN_PILE_MARKER_SPADES),
-	new WinPile(450, 10, CLUBS, WIN_PILE_MARKER_CLUBS),
-	new WinPile(560, 10, HEARTS, WIN_PILE_MARKER_HEARTS),
-	new WinPile(670, 10, DIAMONDS, WIN_PILE_MARKER_DIAMONDS)
+        new WinPile(340, 10, SPADES, WIN_PILE_MARKER_SPADES),
+        new WinPile(450, 10, CLUBS, WIN_PILE_MARKER_CLUBS),
+        new WinPile(560, 10, HEARTS, WIN_PILE_MARKER_HEARTS),
+        new WinPile(670, 10, DIAMONDS, WIN_PILE_MARKER_DIAMONDS)
     ];
 
     columns = [
-	new Column(10, 160),
-	new Column(120, 160),
-	new Column(230, 160),
-	new Column(340, 160),
-	new Column(450, 160),
-	new Column(560, 160),
-	new Column(670, 160)
+        new Column(10, 160),
+        new Column(120, 160),
+        new Column(230, 160),
+        new Column(340, 160),
+        new Column(450, 160),
+        new Column(560, 160),
+        new Column(670, 160)
     ];
 	
     locations = [
-	dealPile,
-	winPiles[0],
-	winPiles[1],
-	winPiles[2],
-	winPiles[3],
-	columns[0],
-	columns[1],
-	columns[2],
-	columns[3],
-	columns[4],
-	columns[5],
-	columns[6]
+        dealPile,
+        winPiles[0],
+        winPiles[1],
+        winPiles[2],
+        winPiles[3],
+        columns[0],
+        columns[1],
+        columns[2],
+        columns[3],
+        columns[4],
+        columns[5],
+        columns[6]
     ];
 
     hand = new Hand();
