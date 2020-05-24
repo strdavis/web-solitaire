@@ -294,7 +294,7 @@ Pile.prototype.popFromIndex = function(index){
 
     // From index to end of pile, copy items to new array.
     for (var i = index; i < this.length; i++){
-	    endSegment.push(this[i]);
+        endSegment.push(this[i]);
     }
 
     // Clear copied items from pile.
@@ -397,10 +397,10 @@ DealPile.prototype.pop = function(){
 
         if (topCard.x == cardBelow.x){    
             this.anchorX = this.x
-	    }
+        }
         else{
 	        this.anchorX = topCard.x;
-	    }
+        }
     }
 
     return Pile.prototype.pop.call(this);
@@ -466,7 +466,7 @@ WinPile.prototype.validateDrop = function(card){
         }
     }
 
-	return true;
+    return true;
 }
 
 
@@ -489,8 +489,8 @@ Column.prototype.detectClicks = function(){
         var clickIndex = -1;
         for (var i = this.length - 1; i >= 0; i--){
             if (this[i].detectClicks()){
-            clickIndex = i;
-            break;
+                clickIndex = i;
+                break;
             }
         }
     }
@@ -687,7 +687,7 @@ tttCanvas.addEventListener('dblclick', function doubleClickOnCanvas (pos) {
 
             // If top card was double-clicked. . .
             if (clickIndex == location.length - 1){
-            winPileTransfer(i, location[clickIndex]);
+                winPileTransfer(i, location[clickIndex]);
             }
         }
     }
