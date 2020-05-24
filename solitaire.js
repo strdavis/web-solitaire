@@ -169,7 +169,7 @@ Card.prototype.detectClicks = function(){
 	    return true;
     }
     else{
-	return false;
+        return false;
     }	
 }
 
@@ -221,9 +221,9 @@ Pile.prototype = new Array();
 
 Pile.prototype.detectClicks = function(){
     if (this.length > 0){
-	if (this[this.length - 1].detectClicks()){
-	    return this.length - 1;
-	}
+        if (this[this.length - 1].detectClicks()){
+            return this.length - 1;
+        }
     }
     
     return -1;
@@ -237,10 +237,10 @@ Pile.prototype.detectDrops = function(card){
     var dropDistanceY = Math.abs(this.anchorY - card.y);
 
     if (dropDistanceX < DROP_THRESHOLD && dropDistanceY < DROP_THRESHOLD){
-	return true;
+        return true;
     }
     else{
-	return false;
+        return false;
     }
 }
 
@@ -249,15 +249,15 @@ Pile.prototype.detectDrops = function(card){
 
 Pile.prototype.validateDrop = function(card){
     if (this.length > 0){
-	var targetCard = this[this.length - 1];
+        var targetCard = this[this.length - 1];
 
-	if (targetCard.value != card.value + 1){
+        if (targetCard.value != card.value + 1){
             return false;
-	}
+        }
 
-	if (targetCard.colour == card.colour){
-	    return false;
-	}
+        if (targetCard.colour == card.colour){
+            return false;
+        }
     }
 
     return true;
@@ -361,7 +361,7 @@ Deck.prototype.shuffle = function(){
     var currentIndex = this.length;
     var temp, randomIndex;
 
-    while (0 !== currentIndex) {
+    while (0 !== currentIndex){
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
 
