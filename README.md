@@ -5,7 +5,7 @@ A Solitaire implementation written in Javascript for an HTML5 canvas.
 ![Gameplay Demo](demo/solitaire-gameplay.gif)
 <br /><br />
 
-Requires the use of two HTML buttons for toggling deal type and triggering new games.
+Requires the use of two HTML buttons for toggling deal type and starting new games.
 <br /><br />
 
 A playable version can be found [here](https://www.strdavis.com/solitaire/).
