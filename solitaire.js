@@ -116,18 +116,18 @@ const CLUBS 		= 1;
 const HEARTS 		= 2;
 const DIAMONDS 		= 3;
 const BLACK 		= 0;
-const RED 		= 1;
+const RED           = 1;
 const FACE_DOWN 	= 0;
 const FACE_UP		= 1;
 const SINGLE_DEAL 	= 0;
 const TRIPLE_DEAL 	= 1;
 const CARD_WIDTH 	= 90;
-const CARD_HEIGHT       = 135;
+const CARD_HEIGHT   = 135;
 
-const FACE_DOWN_CARD_OFFSET 	= 5;
-const FACE_UP_CARD_OFFSET 	= 20;
+const FACE_DOWN_CARD_OFFSET     = 5;
+const FACE_UP_CARD_OFFSET       = 20;
 const DEAL_PILE_CARD_OFFSET 	= 25;
-const DROP_THRESHOLD		= 30;
+const DROP_THRESHOLD            = 30;
 
 var deck 	= null;
 var dealPile 	= null;
