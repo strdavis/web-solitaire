@@ -710,7 +710,7 @@ document.addEventListener('mouseup', function mouseUpOnCanvas (pos) {
         for (var i = 1; i < locations.length; i++){
             if (locations[i].detectDrops(bottomCardInHand) && 
                 locations[i].validateDrop(bottomCardInHand)){
-                locations[i].push(hand.popFromIndex(0));
+                    locations[i].push(hand.popFromIndex(0));
                     dropOK = true;
                     break;
             }
