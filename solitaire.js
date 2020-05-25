@@ -773,7 +773,7 @@ function winPileTransfer(location, card){
 
 
 function computeCursorPosition(pos){
-    var canvasRect = tttCanvas.getBoundingClientRect();
+    var canvasRect = canvas.getBoundingClientRect();
 
     var x = (pos.clientX - canvasRect.left);
     var y = (pos.clientY - canvasRect.top);
