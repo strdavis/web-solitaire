@@ -560,6 +560,17 @@ Column.prototype.push = function(cards, orientation = FACE_UP){
 
 
 
+Column.prototype.pop = function(){
+    var temp = Pile.prototype.pop.call(this);
+
+    this.updateAnchorPos();
+
+    return temp;
+}
+
+
+
+
 Column.prototype.popFromIndex = function(index){
     var temp = Pile.prototype.popFromIndex.call(this, index);
 
@@ -858,7 +869,9 @@ function render(){
 function newGame(){
     recoverAllCards();
 
-    deck.shuffle();
+    //deck.shuffle();
+
+    deck.reverse();
 
     // Deal columns
     for (var i = 0; i < columns.length; i++){
