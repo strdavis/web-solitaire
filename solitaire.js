@@ -936,5 +936,7 @@ function init(){
 
 
 
-// Start game.
-init();
+// When all files have loaded, start game.
+window.addEventListener('load', (event => {
+    init();
+}));

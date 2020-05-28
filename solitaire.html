@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+    
+ 
+<!-- SOLITAIRE GAME PAGE HTML FILE-->
+
+
+
+<head>
+    
+    <title>Strange, Plain</title>
+    
+    <meta charset="UTF-8">
+    
+    <style>
+        body {
+			background-color: #FFFFFF;
+            color: #000000;
+            margin-left: 0;
+            margin-right: 0;
+            line-spacing: 2em;
+        }
+        
+        hr {
+            border-top: 5px solid #000000;
+        }
+        
+        a {
+            color: #000000;
+			text-decoration: none;
+			text-decoration-color: #000000;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+		
+		button {
+			background-color: #FFFFFF;
+			border: none;
+		}
+		
+		button:hover {
+			text-decoration: underline;
+		}
+		
+		
+		
+    </style>
+</head>
+
+
+
+
+<body>
+	
+    <!--SITE HEADER (DISPLAYED ON ALL PAGES)-->
+    <!--LOGO-->
+    <img src = "../images/BlackBlock.png" 
+        width = "24pt"
+        height = "24pt"
+        style = "margin: 0px 10px">
+      
+	  
+	  
+    <!--PAGE HEADER-->
+    <span style = "font-family: arial; 
+                   font-size: 24pt">
+        <b>#solitaire</b>
+    </span>
+	
+	
+	    
+    <!--HOME PAGE LINK-->
+    <a href = "/Users/spencerdavis/Programming/My Website Offline/home/index.html"> 
+		<!--For online version-->
+		<!--"http://www.strdavis.com"-->
+        <span style = "font-family: arial; 
+                       font-size: 24pt;
+					   float: right;
+					   margin-right: 10px;
+					   text-decoration: inherit">
+					   <!--NOTE: "text-decoration: inherit" is required since using
+						   the "float" property takes the link out of "normal flow,"
+						   and text-decorations only get applied to links in the 
+						   normal flow, so you have to explicity tell the link
+						   to inherit the text-decoration property from its 
+						   parent "a"-->
+            <b>home</b>
+        </span>
+    </a>
+    
+	
+	
+    <!--HORIZONTAL BAR-->
+    <hr style = "margin-bottom: 50px">
+	
+	
+	
+    <!--HTML CANVAS FOR SOLITAIRE GAME-->
+	<div style = "text-align: center">
+		
+    	<div style = "display: inline-block;
+				  	  border: 6px solid black">
+        
+        	<canvas id = "tttCanvas" width = "800" height = "560"
+                    style = "background: #ffffff;
+					margin-bottom: -6px">
+        
+        	</canvas>
+    	</div>
+	</div>
+	
+	
+	
+	<!--NEW GAME / DEAL TYPE SELECT BUTTONS FOR SOLITAIRE GAME-->
+	<div style = "text-align: center;
+				  margin-top: 4px">
+		<!--NEW GAME BUTTON-->
+		<div style = "display: inline">
+    		<button id = "newGameButton" style = "font-family: arial; 
+                   	 	 					  	  font-size: 24pt;
+												  width: 190px">
+        		<b>new game</b>
+			</button>
+		</div>
+	
+		<!--FORWARD SLASH (DECORATIVE)-->
+		<div style = "display: inline;
+					  font-family: arial;
+					  font-size: 24pt;
+					  width: 50px">
+			<b>/</b>
+		</div>
+		
+		<!--DIFFICULTY SELECT BUTTON-->
+		<div style = "display: inline">
+    		<button id = "dealTypeSelectButton" style = "font-family: arial; 
+                   	 	 					  	 	 font-size: 24pt;
+													 width: 206px">
+        		<b>triple deal</b>
+			</button>
+		</div>
+	</div>
+		
+		
+    <!--RUN SOLITAIRE-->
+    <script type="text/javascript">
+        var tttScript = document.createElement("script");
+        tttScript.src = "solitaire.js";
+        document.body.appendChild(tttScript);
+    </script>
+	
+	
+</body>
+
+
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+    
+ 
+<!-- SOLITAIRE GAME PAGE HTML FILE-->
+
+
+
+<head>
+    
+    <title>Strange, Plain</title>
+    
+    <meta charset="UTF-8">
+    
+    <style>
+        body {
+			background-color: #FFFFFF;
+            color: #000000;
+            margin-left: 0;
+            margin-right: 0;
+            line-spacing: 2em;
+        }
+        
+        hr {
+            border-top: 5px solid #000000;
+        }
+        
+        a {
+            color: #000000;
+			text-decoration: none;
+			text-decoration-color: #000000;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+		
+		button {
+			background-color: #FFFFFF;
+			border: none;
+		}
+		
+		button:hover {
+			text-decoration: underline;
+		}
+		
+		
+		
+    </style>
+</head>
+
+
+
+
+<body>
+	
+    <!--SITE HEADER (DISPLAYED ON ALL PAGES)-->
+    <!--LOGO-->
+    <img src = "../images/BlackBlock.png" 
+        width = "24pt"
+        height = "24pt"
+        style = "margin: 0px 10px">
+      
+	  
+	  
+    <!--PAGE HEADER-->
+    <span style = "font-family: arial; 
+                   font-size: 24pt">
+        <b>#solitaire</b>
+    </span>
+	
+	
+	    
+    <!--HOME PAGE LINK-->
+    <a href = "/Users/spencerdavis/Programming/My Website Offline/home/index.html"> 
+		<!--For online version-->
+		<!--"http://www.strdavis.com"-->
+        <span style = "font-family: arial; 
+                       font-size: 24pt;
+					   float: right;
+					   margin-right: 10px;
+					   text-decoration: inherit">
+					   <!--NOTE: "text-decoration: inherit" is required since using
+						   the "float" property takes the link out of "normal flow,"
+						   and text-decorations only get applied to links in the 
+						   normal flow, so you have to explicity tell the link
+						   to inherit the text-decoration property from its 
+						   parent "a"-->
+            <b>home</b>
+        </span>
+    </a>
+    
+	
+	
+    <!--HORIZONTAL BAR-->
+    <hr style = "margin-bottom: 50px">
+	
+	
+	
+    <!--HTML CANVAS FOR SOLITAIRE GAME-->
+	<div style = "text-align: center">
+		
+    	<div style = "display: inline-block;
+				  	  border: 6px solid black">
+        
+        	<canvas id = "tttCanvas" width = "800" height = "560"
+                    style = "background: #ffffff;
+					margin-bottom: -6px">
+        
+        	</canvas>
+    	</div>
+	</div>
+	
+	
+	
+	<!--NEW GAME / DEAL TYPE SELECT BUTTONS FOR SOLITAIRE GAME-->
+	<div style = "text-align: center;
+				  margin-top: 4px">
+		<!--NEW GAME BUTTON-->
+		<div style = "display: inline">
+    		<button id = "newGameButton" style = "font-family: arial; 
+                   	 	 					  	  font-size: 24pt;
+												  width: 190px">
+        		<b>new game</b>
+			</button>
+		</div>
+	
+		<!--FORWARD SLASH (DECORATIVE)-->
+		<div style = "display: inline;
+					  font-family: arial;
+					  font-size: 24pt;
+					  width: 50px">
+			<b>/</b>
+		</div>
+		
+		<!--DIFFICULTY SELECT BUTTON-->
+		<div style = "display: inline">
+    		<button id = "dealTypeSelectButton" style = "font-family: arial; 
+                   	 	 					  	 	 font-size: 24pt;
+													 width: 206px">
+        		<b>triple deal</b>
+			</button>
+		</div>
+	</div>
+	
+	
+	
+    <!--PREPARE CANVAS AND IMAGES FOR TICTACTOE-->
+    <script>
+        //Create canvas and rendering context
+        var canvas = document.getElementById("tttCanvas");
+        var context = canvas.getContext("2d");
+		
+        //Load images
+		
+        var cardTableGreenSquare    = new Image();
+        var WHITE_SQUARE             = new Image();
+        var blackSquare             = new Image();
+        var DECK_RESET               = new Image();
+        var CARD_BACK                = new Image();
+        var COLUMN_MARKER           = new Image();
+        var WIN_PILE_MARKER_SPADES     = new Image();
+        var WIN_PILE_MARKER_CLUBS      = new Image();
+        var WIN_PILE_MARKER_HEARTS     = new Image();
+        var WIN_PILE_MARKER_DIAMONDS   = new Image();
+        var ANCHOR_MARKER            = new Image();
+        var aceSpades               = new Image();
+        var twoSpades               = new Image();
+        var threeSpades             = new Image();
+        var fourSpades              = new Image();
+        var fiveSpades              = new Image();
+        var sixSpades               = new Image();
+        var sevenSpades             = new Image();
+        var eightSpades             = new Image();
+        var nineSpades              = new Image();
+        var tenSpades               = new Image();
+        var jackSpades              = new Image();
+        var queenSpades             = new Image();
+        var kingSpades              = new Image();
+        var aceClubs                = new Image();
+        var twoClubs                = new Image();
+        var threeClubs              = new Image();
+        var fourClubs               = new Image();
+        var fiveClubs               = new Image();
+        var sixClubs                = new Image();
+        var sevenClubs              = new Image();
+        var eightClubs              = new Image();
+        var nineClubs               = new Image();
+        var tenClubs                = new Image();
+        var jackClubs               = new Image();
+        var queenClubs              = new Image();
+        var kingClubs               = new Image();
+        var aceHearts               = new Image();
+        var twoHearts               = new Image();
+        var threeHearts             = new Image();
+        var fourHearts              = new Image();
+        var fiveHearts              = new Image();
+        var sixHearts               = new Image();
+        var sevenHearts             = new Image();
+        var eightHearts             = new Image();
+        var nineHearts              = new Image();
+        var tenHearts               = new Image();
+        var jackHearts              = new Image();
+        var queenHearts             = new Image();
+        var kingHearts              = new Image();
+        var aceDiamonds             = new Image();
+        var twoDiamonds             = new Image();
+        var threeDiamonds           = new Image();
+        var fourDiamonds            = new Image();
+        var fiveDiamonds            = new Image();
+        var sixDiamonds             = new Image();
+        var sevenDiamonds           = new Image();
+        var eightDiamonds           = new Image();
+        var nineDiamonds            = new Image();
+        var tenDiamonds             = new Image();
+        var jackDiamonds            = new Image();
+        var queenDiamonds           = new Image();
+        var kingDiamonds            = new Image();
+
+        cardTableGreenSquare.src    = 'misc/cardTableGreenSquare.png';
+        WHITE_SQUARE.src             = 'misc/whiteSquare.png';
+        blackSquare.src             = 'misc/blackSquare.jpg';
+        DECK_RESET.src               = 'misc/deckReset.png';
+        CARD_BACK.src                = 'misc/cardBackPattern1.png';
+        COLUMN_MARKER.src           = 'misc/COLUMN_MARKER.png';
+        WIN_PILE_MARKER_SPADES.src     = 'misc/emptyCardPileSpades.png';
+        WIN_PILE_MARKER_CLUBS.src      = 'misc/emptyCardPileClubs.png';
+        WIN_PILE_MARKER_HEARTS.src     = 'misc/emptyCardPileHearts.png';
+        WIN_PILE_MARKER_DIAMONDS.src   = 'misc/emptyCardPileDiamonds.png';
+        ANCHOR_MARKER.src            = 'misc/anchorMarker.png';
+        aceSpades.src               = 'cards/aceSpades.png';
+        twoSpades.src               = 'cards/2Spades.png'
+        threeSpades.src             = 'cards/3Spades.png';
+        fourSpades.src              = 'cards/4Spades.png';
+        fiveSpades.src              = 'cards/5Spades.png';
+        sixSpades.src               = 'cards/6Spades.png';
+        sevenSpades.src             = 'cards/7Spades.png';
+        eightSpades.src             = 'cards/8Spades.png';
+        nineSpades.src              = 'cards/9Spades.png';
+        tenSpades.src               = 'cards/10Spades.png';
+        jackSpades.src              = 'cards/jackSpades.png';
+        queenSpades.src             = 'cards/queenSpades.png';
+        kingSpades.src              = 'cards/kingSpades.png';
+        aceClubs.src                = 'cards/aceClubs.png';
+        twoClubs.src                = 'cards/2Clubs.png';
+        threeClubs.src              = 'cards/3Clubs.png';
+        fourClubs.src               = 'cards/4Clubs.png';
+        fiveClubs.src               = 'cards/5Clubs.png';
+        sixClubs.src                = 'cards/6Clubs.png';
+        sevenClubs.src              = 'cards/7Clubs.png';
+        eightClubs.src              = 'cards/8Clubs.png';
+        nineClubs.src               = 'cards/9Clubs.png';
+        tenClubs.src                = 'cards/10Clubs.png';
+        jackClubs.src               = 'cards/jackClubs.png';
+        queenClubs.src              = 'cards/queenClubs.png';
+        kingClubs.src               = 'cards/kingClubs.png';
+        aceHearts.src               = 'cards/aceHearts.png';
+        twoHearts.src               = 'cards/2Hearts.png';
+        threeHearts.src             = 'cards/3Hearts.png';
+        fourHearts.src              = 'cards/4Hearts.png';
+        fiveHearts.src              = 'cards/5Hearts.png';
+        sixHearts.src               = 'cards/6Hearts.png';
+        sevenHearts.src             = 'cards/7Hearts.png';
+        eightHearts.src             = 'cards/8Hearts.png';
+        nineHearts.src              = 'cards/9Hearts.png';
+        tenHearts.src               = 'cards/10Hearts.png';
+        jackHearts.src              = 'cards/jackHearts.png';
+        queenHearts.src             = 'cards/queenHearts.png';
+        kingHearts.src              = 'cards/kingHearts.png';
+        aceDiamonds.src             = 'cards/aceDiamonds.png';
+        twoDiamonds.src             = 'cards/2Diamonds.png';
+        threeDiamonds.src           = 'cards/3Diamonds.png';
+        fourDiamonds.src            = 'cards/4Diamonds.png';
+        fiveDiamonds.src            = 'cards/5Diamonds.png';
+        sixDiamonds.src             = 'cards/6Diamonds.png';
+        sevenDiamonds.src           = 'cards/7Diamonds.png';
+        eightDiamonds.src           = 'cards/8Diamonds.png';
+        nineDiamonds.src            = 'cards/9Diamonds.png';
+        tenDiamonds.src             = 'cards/10Diamonds.png';
+        jackDiamonds.src            = 'cards/jackDiamonds.png';
+        queenDiamonds.src           = 'cards/queenDiamonds.png';
+        kingDiamonds.src            = 'cards/kingDiamonds.png';
+	</script>	
+		
+		
+		
+    <!--WAIT FOR RESOURCES TO LOAD, THEN LOAD SNAKE GAME SCRIPT-->
+    <script type="text/javascript">
+        function downloadJSAtOnload() {
+            var tttScript = document.createElement("script");
+            tttScript.src = "solitaire.js";
+            document.body.appendChild(tttScript);
+        }
+        
+        if (window.addEventListener) {
+            window.addEventListener("load", downloadJSAtOnload, false);    
+        }
+        else if (window.attachEvent) {
+            window.attachEvent("onload", downloadJSAtOnload);    
+        }
+        else window.onload = downloadJSAtOnload;
+    </script>
+	
+	
+</body>
+
+
+</html>
