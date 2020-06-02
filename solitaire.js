@@ -869,7 +869,7 @@ function render(){
 function newGame(){
     recoverAllCards();
 
-    //deck.shuffle();
+    deck.shuffle();
 
     deck.reverse();
 
