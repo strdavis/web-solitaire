@@ -1,5 +1,5 @@
 # web-solitaire
-A Solitaire implementation written in Javascript for HTML5 canvas.
+A Solitaire implementation written in Javascript for HTML5 canvas. Original art.
 <br /><br />
 
 ![Gameplay Demo](demo/solitaire-gameplay.gif)
